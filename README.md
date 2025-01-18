@@ -53,7 +53,7 @@ By default, `Create Request.vi` and `Create Response.vi` will convert LV data to
 
 ![Example 1](images/JSON-RPC-Example%201.PNG)
 
-![Example 2](images/JSON-RPC-Flatten-Example.PNG
+![Example 2](images/JSON-RPC-Flatten-Example.PNG)
 
 ## Contributing
 
