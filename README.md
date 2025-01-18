@@ -8,7 +8,7 @@ JSON-RPC is a LabVIEW library for generating and parsing [JSON-RPC](https://www.
 
 ## Usage
 
-### Core
+### Core Methods
 
 #### `Create Request.vi`
 
