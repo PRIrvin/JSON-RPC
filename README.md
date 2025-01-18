@@ -1,6 +1,5 @@
-# JSON-RPC
-
-JSON-RPC is a LabVIEW library for generating and parsing [JSON-RPC](https://www.jsonrpc.org/) messages 
+# JSONrpc
+JSONrpc is a LabVIEW library for generating and parsing [JSON-RPC](https://www.jsonrpc.org/) messages 
 
 ## Getting Started
 
