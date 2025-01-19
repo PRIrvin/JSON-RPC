@@ -2,7 +2,7 @@
 JSONrpc is a LabVIEW library for generating and parsing [JSON-RPC](https://www.jsonrpc.org/) messages. Initially developed for use by [Instrument Framework](https://github.com/levylabpitt/Instrument-Framework)
 
 ## Getting Started
-
+- JSONrpc is developed and packaged in LabVIEW 2019
 - Download and install using the VI Package Manager as described [here](https://levylabpitt.github.io/)
 
 ## Usage
