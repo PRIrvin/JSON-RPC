@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2025-01-09 11:56:54" Modified_Date="2025-01-19 10:00:17" Creator="Patrick Irvin" Comments="" ID="40bd4eb2cbde2346836649ba28c15b33">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2025-01-09 11:56:54" Modified_Date="2025-01-19 11:02:22" Creator="Patrick Irvin" Comments="" ID="fdaa2133c4d5edb5f7166347b7b625f9">
   <Library_General_Settings>
     <Package_File_Name>prirvin_lib_json_rpc</Package_File_Name>
-    <Library_Version>1.2.4.13</Library_Version>
+    <Library_Version>1.2.4.14</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\JSON-RPC</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -35,13 +35,13 @@
     </Custom_Action_VIs>
     <VI_Package_Configuration_File>JSON-RPC.vipc</VI_Package_Configuration_File>
     <Description>
-      <One_Line_Description_Summary/>
+      <One_Line_Description_Summary>Library for encoding and decoding JSON-RPC 2.0 request and response objects </One_Line_Description_Summary>
       <Description>Library for encoding and decoding JSON-RPC 2.0 request and response objects 
 
 https://www.jsonrpc.org/specification</Description>
       <Copyright>Copyright (c) 2025, Patrick Irvin</Copyright>
       <Packager/>
-      <URL>https://github.com/ciozi137</URL>
+      <URL>https://github.com/PRIrvin</URL>
       <Release_Notes>[1.2.3]
 - new install locatation</Release_Notes>
     </Description>
@@ -129,7 +129,7 @@ https://www.jsonrpc.org/specification</Description>
         <Namespace/>
       </Namespace_Overrides>
     </Source_Files>
-    <License_Agreement_Filepath/>
+    <License_Agreement_Filepath>..\LICENSE</License_Agreement_Filepath>
     <Licensing_and_Activation>
       <License_LF_file_path/>
       <Licensed_library_file_path/>
@@ -354,7 +354,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\private</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>77E18383C1CEECBB5B0630AD0E74DA03</GUID>
+      <GUID>DDCC5A203C01B50D7613B6055B43DD79</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -543,7 +543,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\private\Text to UTF-8.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>67A4040184CFFC2DEA9C3E46073A2711</GUID>
+      <GUID>65E84B08B9D74B4FBBBEBC90A9A4080F</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -606,7 +606,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\typedefs\Response--Cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B68D926FC5EF3906D9D9DA3C3EF2A90A</GUID>
+      <GUID>48A1EDA77FD78594D5D3411A366AA13F</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
