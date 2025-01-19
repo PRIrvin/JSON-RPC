@@ -39,8 +39,12 @@
 			<Item Name="UNITTEST-JSON-RPC-speed.vi" Type="VI" URL="../tests/UNITTEST-JSON-RPC-speed.vi"/>
 		</Item>
 		<Item Name="build support" Type="Folder">
-			<Item Name="JSON-RPC.vipb" Type="Document" URL="../../../../build support/JSON-RPC.vipb"/>
-			<Item Name="JSON-RPC.vipc" Type="Document" URL="../../../../build support/JSON-RPC.vipc"/>
+			<Item Name="JSON-RPC.vipb" Type="Document" URL="../build support/JSON-RPC.vipb"/>
+			<Item Name="JSON-RPC.vipc" Type="Document" URL="../build support/JSON-RPC.vipc"/>
+		</Item>
+		<Item Name="examples" Type="Folder">
+			<Item Name="JSONrpc-Example.vi" Type="VI" URL="../JSON-RPC/examples/JSONrpc-Example.vi"/>
+			<Item Name="JSONrpc-Flatten-Example.vi" Type="VI" URL="../JSON-RPC/examples/JSONrpc-Flatten-Example.vi"/>
 		</Item>
 		<Item Name="JSON-RPC.lvlib" Type="Library" URL="../JSON-RPC/JSON-RPC.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">

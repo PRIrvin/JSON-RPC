@@ -1,9 +1,4 @@
 builds/Package/
 builds/
-lv-venv/
-build support/instrument.log
 *.lvlps
 *.aliases
-/lvsrc/ProjectTemplates/Source/LevyLab/Instrument/*.aliases
-/lvsrc/ProjectTemplates/Source/LevyLab/Instrument/*.lvlps
-lvsrc/Antidoc-Output/
