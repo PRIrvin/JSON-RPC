@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2025-01-09 11:56:54" Modified_Date="2025-01-19 12:38:15" Creator="Patrick Irvin" Comments="" ID="30c201ecfe3acb02bc0e7cf8d83b0bdd">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2025-01-09 11:56:54" Modified_Date="2025-01-31 16:17:04" Creator="Patrick Irvin" Comments="" ID="d775751e69c2e95bbdac96dfb24e9405">
   <Library_General_Settings>
     <Package_File_Name>prirvin_lib_json_rpc</Package_File_Name>
-    <Library_Version>1.2.5.15</Library_Version>
+    <Library_Version>1.2.6.16</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\JSON-RPC</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -42,8 +42,8 @@ https://www.jsonrpc.org/specification</Description>
       <Copyright>Copyright (c) 2025, Patrick Irvin</Copyright>
       <Packager/>
       <URL>https://github.com/PRIrvin</URL>
-      <Release_Notes>[1.2.5]
-- new install locatation</Release_Notes>
+      <Release_Notes>[1.2.6]
+- enable 32/64 bit labview</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -178,7 +178,7 @@ https://www.jsonrpc.org/specification</Description>
       <OS_32-Bit>true</OS_32-Bit>
       <OS_64-Bit>true</OS_64-Bit>
       <LV_32-Bit>true</LV_32-Bit>
-      <LV_64-Bit>false</LV_64-Bit>
+      <LV_64-Bit>true</LV_64-Bit>
     </Install_Requirements>
     <LabVIEW>
       <close_labview_before_install>false</close_labview_before_install>
@@ -354,7 +354,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\private</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6FBC46DEA387794DD213DEFF1AEEC276</GUID>
+      <GUID>61A9C772881AB6B6FD4CD8B81A15BB11</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -543,7 +543,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\private\Text to UTF-8.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>D17DB26B52F6F9E08B5AC09E28498919</GUID>
+      <GUID>1ACEB1E6CD829A3E5B981145A60750D1</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -606,7 +606,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\typedefs\Response--Cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>6B9F30BB302B50B682B300BF90207FDC</GUID>
+      <GUID>B31D11F56902C7AC4E69A5C959B304D1</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
