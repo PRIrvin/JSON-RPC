@@ -43,6 +43,7 @@
 			<Item Name="UNITTEST-JSON-RPC-string-Element.vi" Type="VI" URL="../tests/UNITTEST-JSON-RPC-string-Element.vi"/>
 			<Item Name="UNITTEST-JSON-RPC-boolean-Element.vi" Type="VI" URL="../tests/UNITTEST-JSON-RPC-boolean-Element.vi"/>
 			<Item Name="UNITTEST-JSON-RPC-Error-Object.vi" Type="VI" URL="../tests/UNITTEST-JSON-RPC-Error-Object.vi"/>
+			<Item Name="UNITTEST-JSON-RPC-Parse-Error.vi" Type="VI" URL="../tests/UNITTEST-JSON-RPC-Parse-Error.vi"/>
 			<Item Name="UNITTEST-JSON-RPC-speed.vi" Type="VI" URL="../tests/UNITTEST-JSON-RPC-speed.vi"/>
 		</Item>
 		<Item Name="build support" Type="Folder">
