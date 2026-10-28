@@ -1,6 +1,8 @@
 # Change spec: Create Response sends instrument errors as a bare `null`
 
-Status: proposed, awaiting approval. No VI has been edited. Everything under "Current behavior" was read from the VIs with lvkit on 2026-10-27 (develop at `6086bf8`, package 1.2.7.16).
+Issue: [PRIrvin/JSON-RPC#2](https://github.com/PRIrvin/JSON-RPC/issues/2)
+
+Status: proposed. The VI edits below are written as steps for you to carry out in LabVIEW 2019. Everything under "Current behavior" was read from the VIs with lvkit on 2026-10-27 (develop at `6086bf8`, package 1.2.7.16).
 
 ## Summary
 
@@ -36,17 +38,31 @@ Warnings (status false, nonzero code) take the "No Error" frame in both VIs, so 
 
 ## Proposed change
 
-In `private/Create Error Object.vi`, make the `"Error", default` frame do the same as the two reserved-code frames:
+The goal is for the `"Error", default` frame of `private/Create Error Object.vi` to do the same as the two reserved-code frames: build `{code, message: source}` on `error` and return `no error` on `error out`.
 
-- Unbundle `code` and `source` from `error in`.
-- Bundle them into `Error--Cluster.ctl` as `{code, message: source}` and return that on `error`.
-- Return `no error` on `error out`.
+Edit steps, in LabVIEW 2019:
 
-Once all three error frames are identical, the cleanest edit is to delete the two reserved-code frames and keep one `"Error", default` frame holding that logic, so a future reserved code cannot be left out by accident. If keeping the explicit frames as documentation matters more, copying the logic into the default frame gives the same behavior. Either way:
+1. Open `JSON-RPC.lvproj`, then open `JSON-RPC/private/Create Error Object.vi` and go to its block diagram.
+2. Show the case frame `"Error -32603..-32601, -32099..-32000"`. Select its Unbundle By Name (`code`, `source`) and Bundle nodes and copy them.
+3. Show the `"Error", default` frame. Paste the copied nodes into it, or rebuild them:
+   - Wire `error in (no error)` into an **Unbundle By Name** that returns `code` and `source`.
+   - Wire a `no error` (Error--Cluster) constant into a **Bundle** whose `code` input takes `code` and whose `message` input takes `source`.
+4. In that frame:
+   - Wire the Bundle output to the `error` indicator's output tunnel.
+   - Wire a `no error` constant to the `error out` output tunnel, replacing the pass-through of `error in`.
+   - Leave the `"No Error"` frame as it is.
+5. Optional, recommended: show `"Error -32700, -32600"`, right-click the case structure border and choose **Delete This Case**, then do the same for `"Error -32603..-32601, -32099..-32000"`.
+6. Check that the run arrow is unbroken and that no output tunnel is set to "Use Default If Unwired" in a way that hides a missing wire.
+7. Save the VI. It is already a LabVIEW 2019 VI, so a normal save keeps it in 2019.
+
+Deleting the two reserved-code frames (step 5) is recommended: with all three error frames identical, a single default frame means a future reserved code cannot be left out by accident. If you'd rather keep the explicit frames as documentation, copying the logic into the default frame gives the same behavior.
+
+Either way:
 
 - No connector pane, typedef, or other VI changes.
 - `Create Response-JSONtext.vi` is not touched.
-- Save in LabVIEW 2019.
+
+After saving, I can re-read the VI with lvkit to confirm the frames match the intended logic before you build.
 
 On the wire, a framework "command not supported" error becomes:
 
@@ -86,7 +102,7 @@ This is the intended behavior change. Any client code that calls commands an ins
 
 ## Test plan
 
-Unit tests in this repo, LabVIEW 2019. Add `tests/UNITTEST-JSON-RPC-error-object.vi` and call it from `tests/UNITTESTS.vi`.
+Unit tests in this repo, LabVIEW 2019. For you to build: create `tests/UNITTEST-JSON-RPC-error-object.vi`, modeled on the existing `tests/UNITTEST-JSON-RPC-*.vi` tests, and add a call to it in `tests/UNITTESTS.vi`. It should cover cases 1-6 below.
 
 1. `Create Response.vi` with `id` `"1"` and error code 4001, source `"command not supported"`, returns exactly `{"jsonrpc":"2.0","error":{"code":4001,"message":"command not supported"},"id":"1"}` with `error out` clear.
 2. The same check for 5402, a DAQmx code (-200279), and -32100.
