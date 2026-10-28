@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2025-01-09 11:56:54" Modified_Date="2026-10-22 10:31:49" Creator="Patrick Irvin" Comments="" ID="ccb1a9fb33a8a4773d8146c2130647dc">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2025-01-09 11:56:54" Modified_Date="2026-10-27 21:16:39" Creator="Patrick Irvin" Comments="" ID="2e11ea48bc2d7c3392cc0a877b6d07cb">
   <Library_General_Settings>
     <Package_File_Name>prirvin_lib_json_rpc</Package_File_Name>
-    <Library_Version>1.2.7.17</Library_Version>
+    <Library_Version>1.2.8.18</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\JSON-RPC</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -42,9 +42,27 @@ https://www.jsonrpc.org/specification</Description>
       <Copyright>Copyright (c) 2025, Patrick Irvin</Copyright>
       <Packager/>
       <URL>https://github.com/PRIrvin</URL>
-      <Release_Notes>[1.2.7]
+      <Release_Notes>JSON-RPC 1.2.8
 
-Add JSON to Variant.vi; JSON to LVtype.vim is a thin wrapper to JSON to Variant.vi</Release_Notes>
+Fixed
+Instrument errors are no longer sent as a bare null (PRIrvin/JSON-RPC#2). Until now, Create Response.vi produced a real error reply only for the reserved JSON-RPC codes (-32700, -32600, -32603..-32601, -32099..-32000). Any other code, such as the Instrument Framework’s 4001 “command not supported”, 5402, or DAQmx errors, went out as the literal null with no envelope. Every error code now produces a standard reply:
+{"jsonrpc":"2.0","error":{"code":4001,"message":"command not supported"},"id":"1"}
+
+The message is the LabVIEW error’s source text. Codes are sent as they are; 4001 is not remapped to -32601.
+
+Behavior change
+Clients that used to get an empty result with no error for an unsupported or failed command will now get an error. LabVIEW clients (Parse Response.vi, RemoteControl.ZMQ) return it on error out with the original code. Python clients get an error member instead of None. Check scripts that relied on the old silent result.
+
+Tests
+New UNITTEST-JSON-RPC-Error-Object.vi, added to UNITTESTS.vi. It covers non-reserved, DAQmx and reserved codes, the no-error and notification (id “-1”) cases, and a Create Response / Parse Response round trip.
+
+Upgrading
+Instrument Type and RemoteControl.ZMQ accept this version without being rebuilt.
+Multichannel-Lockin: its ApplyMe_2.23.0.vipc pins JSON-RPC 1.2.6.15 exactly, so regenerate it with 1.2.8.
+Instrument executables (lock-in, KH7008, Transport Server) must be rebuilt to include the fix.
+
+Known issue
+A request that isn’t valid JSON still gets no reply, which leaves the server’s ZMQ REP socket stuck until the instrument is restarted. The fix is planned mainly in RemoteControl.ZMQ. Don’t send malformed requests to running instruments.</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -369,7 +387,7 @@ Add JSON to Variant.vi; JSON to LVtype.vim is a thin wrapper to JSON to Variant.
         <Path>..\JSON-RPC\private</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>0FFCB7D5341CB29AF0586FB828D6D210</GUID>
+      <GUID>FFFD063A75D1F6AE16F36A37E0435312</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -558,7 +576,7 @@ Add JSON to Variant.vi; JSON to LVtype.vim is a thin wrapper to JSON to Variant.
         <Path>..\JSON-RPC\private\Text to UTF-8.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>3E14CA1FED7E914123F514C98A4B5B80</GUID>
+      <GUID>FAFA2BADE20CDDC403765010C5346610</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -621,7 +639,7 @@ Add JSON to Variant.vi; JSON to LVtype.vim is a thin wrapper to JSON to Variant.
         <Path>..\JSON-RPC\typedefs\Response--Cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>627BF9B22C8F7195F5B2F94F167A6D9A</GUID>
+      <GUID>32B4FADBEDEA4CF920DD3EE068B1C652</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
