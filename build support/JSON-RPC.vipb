@@ -1,7 +1,7 @@
-<VI_Package_Builder_Settings Version="2018" Created_Date="2025-01-09 11:56:54" Modified_Date="2026-10-28 15:12:38" Creator="Patrick Irvin" Comments="" ID="222cb2c469d44083f4f99a8af7bfc362">
+<VI_Package_Builder_Settings Version="2018" Created_Date="2025-01-09 11:56:54" Modified_Date="2026-10-28 16:36:17" Creator="Patrick Irvin" Comments="" ID="4e32cbdf766e149f9f3ec0b9e065067f">
   <Library_General_Settings>
     <Package_File_Name>prirvin_lib_json_rpc</Package_File_Name>
-    <Library_Version>1.3.0.19</Library_Version>
+    <Library_Version>1.3.1.19</Library_Version>
     <Auto_Increment_Version>false</Auto_Increment_Version>
     <Library_Source_Folder>..\JSON-RPC</Library_Source_Folder>
     <Library_Output_Folder>..\builds\Package</Library_Output_Folder>
@@ -42,12 +42,8 @@ https://www.jsonrpc.org/specification</Description>
       <Copyright>Copyright (c) 2025, Patrick Irvin</Copyright>
       <Packager/>
       <URL>https://github.com/PRIrvin</URL>
-      <Release_Notes>JSON-RPC 1.3.0
-- Parse Request returns -32700 "Parse error" for non-JSON or malformed input (previously no error).
-- Parse Request returns -32600 "Invalid Request" when "method" is missing or empty.
-- Create Response always answers an error; an unknown id ("-1" or "") is sent as "id": null.
-- Parse Response accepts "id": null and returns id "-1".
-- Flatten to String / Unflatten from String now carry Base64 inside ["..."] (not compatible with 1.2.x flatten payloads). Unflatten returns -32602 for a malformed payload.</Release_Notes>
+      <Release_Notes>JSON-RPC 1.3.1
+- fix issue in which Create Response would wrap message id in extra ""</Release_Notes>
     </Description>
     <Destinations>
       <Toolkit_VIs>
@@ -372,7 +368,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\private</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>B14C1C0D03992D99EDAC2EBA61FE71BB</GUID>
+      <GUID>33E2DC3D0D06C059E0904A10AD391B7F</GUID>
     </Functions_Palette_Data>
     <Functions_Palette_Data>
       <Parent_Palette_Index>0</Parent_Palette_Index>
@@ -561,7 +557,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\private\Text to UTF-8.vi</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>BE3492DB02428996487A839ACE7B36A3</GUID>
+      <GUID>C9D1994CE842358587D0E8DF574FACF7</GUID>
     </Functions_Palette_Data>
     <Controls_Palette_Data>
       <Parent_Palette_Index>-1</Parent_Palette_Index>
@@ -624,7 +620,7 @@ https://www.jsonrpc.org/specification</Description>
         <Path>..\JSON-RPC\typedefs\Response--Cluster.ctl</Path>
         <VI_Title/>
       </Items_Data>
-      <GUID>26129746665BF7819AF5C60E6955F7E3</GUID>
+      <GUID>EEA97E6DD39B8E437AB2E1DB1EACE9CC</GUID>
     </Controls_Palette_Data>
   </Library_Palette_Definition>
 </VI_Package_Builder_Settings>
